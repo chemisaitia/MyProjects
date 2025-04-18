@@ -1,0 +1,131 @@
+body {
+  background: #b43030;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hand {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card {
+  width: 80px;
+  height: 120px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffffff, #d1d1d1);
+  background-size: cover;
+  border: 3px solid #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.card.disabled {
+  filter: brightness(40%) grayscale(50%);
+  cursor: not-allowed;
+}
+
+.card.disabled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#top-card {
+  margin-top: 10px;
+}
+
+#wildMenu {
+  visibility: hidden;
+  width: 50%;
+  height: 40%;
+  background-color: black;
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  row-gap: 10px;
+}
+
+#red {
+  background: radial-gradient(circle, #ff0000 0%, #990000 100%);
+  width: 120px !important;
+  margin-top: 8%;
+  cursor: pointer;
+}
+#green {
+  background: radial-gradient(circle, #00cc00 0%, #006600 100%);
+  width: 120px !important;
+  margin-top: 8%;
+  cursor: pointer;
+}
+#blue {
+  background: radial-gradient(circle, #0066ff 0%, #003399 100%);
+  width: 120px !important;
+  margin-top: 8%;
+  cursor: pointer;
+}
+#yellow {
+  background: radial-gradient(circle, #ffcc00 0%, #996600 100%);
+  width: 120px !important;
+  margin-top: 8%;
+  cursor: pointer;
+}
+.card.black {
+  background: radial-gradient(circle, #333333 0%, #000000 100%);
+  width: 120px !important;
+}
+
+#newGameCont {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+#ball1,
+#ball2 {
+  background-color: grey;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+#ball1 {
+  margin-left: 12%;
+}
+
+#message {
+  position: absolute;
+  top: 40%;
+  left: 1%;
+}

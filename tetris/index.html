@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Tetris Game</title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #gameArea {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            background-color: #000;
+            overflow: hidden;
+        }
+        .block {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #00ff00;
+        }
+        #score {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameArea"></div>
+    <div id="score">Score: 0</div>
+<script>
+    const rows = 20;
+    const columns = 10;
+    const blockSize = 30;
+    const gameArea = document.getElementById("gameArea");
+    const scoreDisplay = document.getElementById("score");
+    let grid = [];
+    for (let i = 0; i < rows; i++) {
+        let row = [];
+        for (let j = 0; j < columns; j++) {
+            row.push(null);  // Fill each cell with null
+        }
+        grid.push(row);  // Add the row to the grid
+    }
+    let currentTetromino;
+    let currentPosition;
+    let score = 0;
+
+    // Tetromino shapes
+    const tetriminos = [
+        [[1, 1, 1, 1]], // I shape
+        [[1, 1], [1, 1]], // O shape
+        [[0, 1, 1], [1, 1, 0]], // S shape
+        [[1, 1, 0], [0, 1, 1]], // Z shape
+        [[1, 0, 0], [1, 1, 1]], // L shape
+        [[0, 0, 1], [1, 1, 1]], // J shape
+        [[0, 1, 0], [1, 1, 1]], // T shape
+    ];
+
+    // Generate a random Tetromino
+    function generateTetromino() {
+        const randomIndex = Math.floor(Math.random() * tetriminos.length);
+        currentTetromino = tetriminos[randomIndex];
+        currentPosition = { x: Math.floor(columns / 2) - 1, y: 0 };
+    }
+
+    // Draw the current Tetromino
+    function drawTetromino() {
+        currentTetromino.forEach((row, rowIndex) => {
+            row.forEach((value, colIndex) => {
+                if (value) {
+                    const block = document.createElement("div");
+                    block.className = "block";
+                    block.style.left = `${(currentPosition.x + colIndex) * blockSize}px`;
+                    block.style.top = `${(currentPosition.y + rowIndex) * blockSize}px`;
+                    gameArea.appendChild(block);
+                }
+            });
+        });
+    }
+
+    // Move down the Tetromino
+    function moveTetromino() {
+        if (canMove(0, 1)) {
+            currentPosition.y++;
+        } else {
+            lockTetromino();
+            clearLines();
+            generateTetromino();
+            if (!canMove(0, 0)) {
+                alert("Game Over! Your score: " + score);
+                resetGame();
+            }
+        }
+    }
+
+    // Check if the Tetromino can move
+    function canMove(offsetX, offsetY) {
+        for (let row = 0; row < currentTetromino.length; row++) {
+            for (let col = 0; col < currentTetromino[row].length; col++) {
+                if (currentTetromino[row][col]) { // Only check filled blocks
+                    const newX = currentPosition.x + col + offsetX;
+                    const newY = currentPosition.y + row + offsetY;
+
+                    // Check boundaries and collisions
+                    if (newX < 0 || newX >= columns || newY >= rows || (newY >= 0 && grid[newY][newX])) {
+                        return false; // Can't move
+                    }
+                }
+            }
+        }
+        return true; // Can move
+    }
+
+    // Lock the Tetromino in place
+    function lockTetromino() {
+        for (let row = 0; row < currentTetromino.length; row++) {
+            for (let col = 0; col < currentTetromino[row].length; col++) {
+                if (currentTetromino[row][col]) {
+                    grid[currentPosition.y + row][currentPosition.x + col] = 1; 
+                }
+            }
+        }
+    }
+
+    // Clear filled lines
+    function clearLines() {
+        for (let row = rows - 1; row >= 0; row--) {
+            if (grid[row].every(value => value)) {
+                grid.splice(row, 1);
+                grid.unshift(Array(columns).fill(0)); 
+                score += 10; 
+                scoreDisplay.innerText = `Score: ${score}`;
+            }
+        }
+    }
+
+    // Rotate the Tetromino
+    // function rotateTetromino() {
+    //     const rotated = currentTetromino[0].map((_, index) =>
+    //         currentTetromino.map(row => row[index]).reverse()
+    //     );
+
+    //     const originalTetromino = currentTetromino;
+    //     currentTetromino = rotated;
+
+    //     if (!canMove(0, 0)) {
+    //         currentTetromino = originalTetromino; 
+    //     }
+    // }
+
+    function rotateTetromino() {
+        const rows = currentTetromino.length; // Number of rows in the current tetromino
+        const cols = currentTetromino[0].length; // Number of columns in the current tetromino
+        const rotated = []; // Create a new array for the rotated shape
+
+        // Initialize the rotated array with the correct dimensions
+        for (let i = 0; i < cols; i++) {
+            rotated[i] = []; // Create each new row
+        }
+
+        // Fill the rotated array with the rotated values
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                rotated[col][rows - 1 - row] = currentTetromino[row][col];
+            }
+        }
+
+        const originalTetromino = currentTetromino; // Save the original tetromino
+        currentTetromino = rotated; // Update currentTetromino to the rotated shape
+
+        // Check if the rotated position is valid; if not, revert to original
+        if (!canMove(0, 0)) {
+            currentTetromino = originalTetromino; // Revert to original if collision detected
+        }
+    }
+
+
+    // Handle user input
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && canMove(-1, 0)) {
+            currentPosition.x--;
+        } else if (e.key === 'ArrowRight' && canMove(1, 0)) {
+            currentPosition.x++;
+        } else if (e.key === 'ArrowDown') {
+            moveTetromino();
+        } else if (e.key === 'ArrowUp') {
+            rotateTetromino();
+        }
+        draw();
+    });
+
+    // Clear the game area and draw all elements
+    function draw() {
+        gameArea.innerHTML = ''; // Clear previous blocks
+        drawTetromino();
+        drawGrid();
+    }
+
+    // Draw the grid (locked Tetrominoes)
+    function drawGrid() {
+        grid.forEach((row, rowIndex) => {
+            row.forEach((value, colIndex) => {
+                if (value) {
+                    const block = document.createElement("div");
+                    block.className = "block";
+                    block.style.left = `${colIndex * blockSize}px`;
+                    block.style.top = `${rowIndex * blockSize}px`;
+                    gameArea.appendChild(block);
+                }
+            });
+        });
+    }
+
+    let speed = 500; // Initial speed
+    let gameInterval; // Store the interval ID
+
+    function startGame() {
+        generateTetromino();
+        draw();
+        gameInterval = setInterval(updateGame, speed); // Start the game with the initial speed
+    }
+
+    function updateGame() {
+        moveTetromino();
+        draw();
+
+        if (speed > 100) { 
+            speed -= 1; 
+            clearInterval(gameInterval); 
+            gameInterval = setInterval(updateGame, speed); 
+        }
+    }
+
+    // Reset the game
+    function resetGame() {
+        grid.forEach(row => row.fill(null)); 
+        score = 0;
+        document.getElementById('score').innerText = `Score: ${score}`;
+        speed = 500 
+        startGame();
+    }
+
+    // Start the game
+    startGame();
+
+</script>
+</body>
+</html>

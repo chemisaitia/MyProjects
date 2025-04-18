@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UNO</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="Icon.png" type="image/x-icon" />
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+  </head>
+  <body>
+    <h1>UNO</h1>
+
+    <div>
+      <p>Your ID: <span id="peer-id">Loading...</span></p>
+      <input id="connect-id" placeholder="Enter opponent's ID" />
+      <button onclick="connect()">Connect</button>
+    </div>
+
+    <hr />
+
+    <div>
+      <h2>Top Card</h2>
+      <div id="top-card" class="card" style="margin-bottom: 10px"></div>
+      <button onclick="drawCard(false, 0)">Draw Card</button>
+    </div>
+
+    <div>
+      <h2>Your Hand</h2>
+      <div id="your-hand" class="hand">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+      </div>
+    </div>
+
+    <div id="wildMenu">
+      <div class="card" id="red" onclick="setColor(`Red`)"></div>
+      <div class="card" id="green" onclick="setColor(`Green`)"></div>
+      <div class="card" id="blue" onclick="setColor(`Blue`)"></div>
+      <div class="card" id="yellow" onclick="setColor(`Yellow`)"></div>
+    </div>
+
+    <span id="message"></span>
+
+    <div>
+      <h2>Opponent's Last Move</h2>
+      <div id="opponent-move">Waiting...</div>
+    </div>
+
+    <div id="newGameCont">
+      <div id="ball1"></div>
+      <div id="ball2"></div>
+      <br />
+      <button id="rematch" onclick="rematch()">Rematch</button>
+      <button id="newGame" onclick="newGame()">New Game</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
