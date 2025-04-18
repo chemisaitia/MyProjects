@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.gameCard {
+  border-radius: 10%;
+  width: 350px;
+  height: 350px;
+  text-align: center;
+}
+
+.gameCard img {
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+}
+
+h1:first-of-type {
+  text-align: center;
+  font-size: 4rem;
+}
+
+label,
+select {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+select {
+  height: 30px;
+}
