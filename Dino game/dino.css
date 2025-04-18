@@ -1,0 +1,161 @@
+/* this is animation to make background move */
+@keyframes backgroundmove{
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(-50%);
+    }
+}
+
+/* this is animation to make clouds move */
+@keyframes cloudmove{
+    0%{
+        transform: translateX(-120%);
+    }
+
+    100%{
+        transform: translateX(-320%);
+    }
+}
+
+/* this is animation to make dino jump */
+@keyframes jump{
+    0%{
+        transform: translateY(0%);
+    }
+
+    50%{
+        transform: translateY(-115%);
+    }
+
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+/* this is animation to make cactuses move */
+@keyframes cactusmove{
+    0%{
+        transform: translateX(3200%);
+    }
+
+    100%{
+        transform: translateX(-300%);
+    }
+}
+
+/* these are styles of time counter */
+#time-counter{
+    position: absolute;
+    z-index: 2;
+    right: 2vw;
+    top: 2vh;
+}
+
+#record{
+    position: absolute;
+    z-index: 3;
+    right: 2vw;
+    top: 4vh;
+}
+
+/* these are styles of button that starts the game */
+#startbtn{
+    margin-left: 41%;
+    margin-top: 21%;
+    background-color: whitesmoke;
+    padding: 35px 80px;
+}
+
+/* these are styles of body */
+body {
+    background-color: rgba(255, 250, 255, 255);
+    overflow: hidden;
+}
+
+/* these are styles of dino */
+#dino {
+    width: 12vw;
+    position: absolute;
+    left: 2vw;
+    top: 65vh;
+    z-index: 1;
+}
+
+/* these are styles of gameover music */
+#gameover{
+    position: absolute;
+    z-index: -1;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    visibility: hidden;
+}
+
+/* these are styles of cactus */
+.cactus {
+    position: absolute;
+    top: 80vh;
+    width: 8vw;
+    z-index: 1;
+    animation: cactusmove 2.8s linear infinite;
+}
+
+/* these are styles of the text game over */
+#endtext {
+    color: white;
+    font-weight: 800;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 40vh;
+    cursor: default;
+}
+
+#endtext::selection{
+    background-color: black;
+    cursor: default;
+}
+
+/* score text styles that show when game is over */
+#score{
+    color: white;
+    font-weight: 700;
+    margin-left: 45vw;
+    cursor: default;
+}
+
+#score::selection{
+    background-color: black;
+    cursor: default;
+}
+
+/* these are styles of background */
+#mainbackground {
+    position: absolute;
+    left: 0;
+    bottom: 3vh;
+    width: 220vw;
+    height: 30vh;
+    animation: backgroundmove 1.5s linear infinite;
+}
+
+/* these are styles of restart button */
+#restartbtn{
+    background-color: white;
+    margin-left: 48%;
+    border-radius: 5%;
+    padding: 5px 10px;
+    border: 0;
+
+}
+
+/* these are styles of clouds */
+#clouds{
+    width: 100vw;
+    height: 100vh;
+    margin-top: -50vh;
+    margin-left: 200%;
+    animation: cloudmove 6s linear infinite;
+}

@@ -1,0 +1,171 @@
+@import "https://fonts.googleapis.com/css?family=Questrial:300,400,500,600,700";
+@import "https://fonts.googleapis.com/css?family=Merriweather:300,400,500,600,700";
+@import "https://fonts.googleapis.com/css?family=Rubik:300,400,500,700";
+
+html, body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.04em;
+    word-spacing: 0.2em;
+    text-decoration: none;
+    word-break: break-word;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: 0;
+}
+html, body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #fff;
+}
+.row, .row-first, .row-last {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.row {
+    padding: 0.5em 1em;
+}
+.row-first {
+    padding: 1em 1em 0.5em 1em;
+}
+.row-last {
+    padding: 0.5em 1em 1em 1em;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+}
+h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+h2 {
+    font-size: 2.1rem;
+    font-weight: 400;
+}
+h3 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+h5 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+h6 {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.keyboard {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    background-color: #333;
+
+
+    padding: 1rem;
+    border-radius: 10px;
+
+    display: grid;
+    grid-gap: 7px;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(5, 60px);
+    box-shadow: 0 0 0.5rem 0.1rem rgba(#000000, 0.3);
+
+    div {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0.25rem rgba(#000000, 0.5);
+        border-radius: 5px;
+        background-color: #2e2d2d;
+        align-items: flex-start;
+        justify-content: left;
+        padding:  0.4rem 0 0 0.4rem;
+        font-size: 0.9rem;
+        transition: background-color 100ms, transform 100ms;
+}
+    ion-icon {
+        color: #fff;
+}
+        
+    .key-enter {
+        flex-direction: column;
+    }
+    .key-backspace,
+    .key-tab {
+        ion-icon {
+            font-size: 1.25rem;
+        }
+    }
+
+    .key-left-windows,
+    .key-right-windows {
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .key-backspace {
+        grid-column: 14 / 17;
+    }
+    .key-tab {
+        grid-column: 1 / 3;
+    }
+    .key-left-slash {
+        grid-column: 15 / 17;
+    }
+    .key-caps-lock {
+        grid-column: 1 / 3; 
+    }
+    .key-enter {
+        grid-column: 14 / 17;
+    }
+    .key-left-shift {
+        grid-column: 1 / 4;
+    }
+    .key-right-shift {
+        grid-column: 14 / 17;
+    }
+    .key-space {
+        grid-column: 5 / 12;
+    }
+    .key-left-ctrl {
+        grid-column: 1 / 3;
+    }
+    .key-right-ctrl {
+        grid-column: 15 / 17;
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 400;
+    color: #555;
+}
+span {
+    text-align: center;
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+}
+.row .keyboard div.pressed{
+    background-color: #5e5858;
+}

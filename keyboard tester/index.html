@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="row-first">
+    <h1>CSS Keyboard</h1>
+    <span>Try pressing your keyboard keys</span>
+  </div>
+  
+  <div class="row">
+    <div class="keyboard">
+      <div class="key-tilda" data-key="Backquote">~<br>`</div>
+      <div class="key-1" data-key="Digit1">!<br>1</div>
+      <div class="key-2" data-key="Digit2">@<br>2</div>
+      <div class="key-3" data-key="Digit3">#<br>3</div>
+      <div class="key-4" data-key="Digit4">$<br>4</div>
+      <div class="key-5" data-key="Digit5">%<br>5</div>
+      <div class="key-6" data-key="Digit6">^<br>6</div>
+      <div class="key-7" data-key="Digit7">&<br>7</div>
+      <div class="key-8" data-key="Digit8">*<br>8</div>
+      <div class="key-9" data-key="Digit9">(<br>9</div>
+      <div class="key-0" data-key="Digit0">)<br>0</div>
+      <div class="key-minus" data-key="Minus">-<br>_</div>
+      <div class="key-plus" data-key="Equal">+<br>=</div>
+      <div class="key-backspace" data-key="Backspace">
+        <ion-icon name="ios-arrow-round-back"></ion-icon>
+      </div>
+  
+      <div class="key-tab" data-key="Tab">
+        <ion-icon name="ios-swap"></ion-icon>
+      </div>
+      <div class="key-q" data-key="KeyQ">Q</div>
+      <div class="key-w" data-key="KeyW">W</div>
+      <div class="key-e" data-key="KeyE">E</div>
+      <div class="key-r" data-key="KeyR">R</div>
+      <div class="key-t" data-key="KeyT">T</div>
+      <div class="key-y" data-key="KeyY">Y</div>
+      <div class="key-u" data-key="KeyU">U</div>
+      <div class="key-i" data-key="KeyI">I</div>
+      <div class="key-o" data-key="KeyO">O</div>
+      <div class="key-p" data-key="KeyP">P</div>
+      <div class="key-bracket-open" data-key="BracketLeft">{<br>[</div>
+      <div class="key-bracket-close" data-key="BracketRight">}<br>]</div>
+      <div class="key-left-slash" data-key="Backslash">|<br>\</div>
+  
+      <div class="key-caps-lock" data-key="CapsLock">Caps Lock</div>
+      <div class="key-a" data-key="KeyA">A</div>
+      <div class="key-s" data-key="KeyS">S</div>
+      <div class="key-d" data-key="KeyD">D</div>
+      <div class="key-f" data-key="KeyF">F</div>
+      <div class="key-g" data-key="KeyG">G</div>
+      <div class="key-h" data-key="KeyH">H</div>
+      <div class="key-j" data-key="KeyJ">J</div>
+      <div class="key-k" data-key="KeyK">K</div>
+      <div class="key-l" data-key="KeyL">L</div>
+      <div class="key-punctuation" data-key="Semicolon">:<br>;</div>
+      <div class="key-quote" data-key="Quote">"<br>'</div>
+      <div class="key-enter" data-key="Enter">
+        Enter
+        <ion-icon name="ios-return-left"></ion-icon> 
+      </div>
+  
+      <div class="key-left-shift" data-key="ShiftLeft">Shift</div>
+      <div class="key-z" data-key="KeyZ">Z</div>
+      <div class="key-x" data-key="KeyX">X</div>
+      <div class="key-c" data-key="KeyC">C</div>
+      <div class="key-v" data-key="KeyV">V</div>
+      <div class="key-b" data-key="KeyB">B</div>
+      <div class="key-n" data-key="KeyN">N</div>
+      <div class="key-m" data-key="KeyM">M</div>
+      <div class="key-comma" data-key="Comma"><br>,</div>
+      <div class="key-dot" data-key="Period">><br>.</div>
+      <div class="key-right-slash" data-key="Slash">?<br>/</div>
+      <div class="key-right-shift" data-key="ShiftRight">Shift</div>
+  
+      <div class="key-left-ctrl" data-key="ControlLeft">Ctrl</div>
+      <div class="key-left-windows" data-key="MetaLeft">
+        <ion-icon name="logo-windows"></ion-icon>
+      </div>
+      <div class="key-left-alt" data-key="AltLeft">Alt</div>
+      <div class="key-space" data-key="Space"></div>
+      <div class="key-right-alt" data-key="AltRight">Alt</div>
+      <div class="key-right-windows" data-key="MetaRight">
+        <ion-icon name="logo-windows"></ion-icon>
+      </div>
+      <div class="key-context-menu" data-key="ContextMenu">
+        <ion-icon name="ios-paper"></ion-icon>
+      </div>
+      <div class="key-right-ctrl" data-key="ControlRight">Ctrl</div>
+    </div>
+  </div>
+  
+  
+  <script src="https://unpkg.com/ionicons@4.2.4/dist/ionicons.js"></script>
+  <script src="resources/scripts/script.js"></script>
+  <script>
+      const keysPressed = {};
+
+      document.addEventListener('keydown', (event) => {
+          keysPressed[event.code] = true;
+          const keyElement = document.querySelector(`[data-key="${event.code}"]`);
+          
+          if (keyElement) {
+              keyElement.classList.add('pressed');
+          }
+      });
+
+      document.addEventListener('keyup', (event) => {
+          delete keysPressed[event.code];
+
+          const keyElement = document.querySelector(`[data-key="${event.code}"]`);
+          
+          if (keyElement) {
+              keyElement.classList.remove('pressed');
+          }
+      });
+</script>
+
+</body>
+</html>
+
+

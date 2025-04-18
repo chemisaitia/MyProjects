@@ -1,0 +1,162 @@
+body {
+    background-color: rgb(236, 231, 231);
+    overflow: hidden;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+.lar {
+    font-size: 5rem;
+    margin-top: -12%;
+    border-radius: 50%;
+    padding: 0.4rem;
+    width: 90px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lar:hover {
+    background-color: rgba(86, 82, 82, 0.8);
+}
+
+.rar {
+    font-size: 5rem;
+    margin-left: 92%;
+    margin-top: -6%;
+    font-size: 5rem;
+    border-radius: 50%;
+    padding: 0.4rem;
+    width: 90px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rar:hover {
+    background-color: rgba(86, 82, 82, 0.8);
+}
+
+#cal-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    height: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.margin {
+    margin-left: 6% !important;
+}
+
+#descr-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 15px 90px 15px 15px;
+    border: 1px solid black;
+}
+
+span:first-of-type {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+.blue {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    margin: 10px;
+}
+
+.yellow {
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.day-box {
+    width: 120px;
+    height: 120px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 2px;
+    cursor: pointer;
+}
+
+.today {
+    background-color: blue !important;
+    color: white;
+}
+
+.cont {
+    background-color: rgb(225, 222, 222);
+    border: 1px solid black;
+    height: 100vh;
+    width: 25%;
+    position: absolute;
+    z-index: 1;
+    right: -30%;
+    top: 0;
+    opacity: 0.8;
+}
+
+.cont.animate {
+    animation: slidein forwards 2s;
+}
+
+#evinp {
+    align-self: center;
+    margin-left: 28%;
+    margin-top: 3%;
+    padding: 3px;
+}
+
+.eventbtn {
+    margin-left: 33%;
+    cursor: pointer;
+}
+
+.has-events {
+    background-color: yellow !important;
+}
+
+#eventholder {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+@keyframes slidein {
+    0% {
+        right: -30%;
+    }
+    100% {
+        right: 0%;
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+    <link rel="icon" type="X/icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="display" readonly style="width: 212px; margin-bottom: 5px;"><br>
+        <button class="number" onclick="appendNumber('1')">1</button>
+        <button class="number" onclick="appendNumber('2')">2</button>
+        <button class="number" onclick="appendNumber('3')">3</button>
+        <button class="blue" onclick="appendOperator('+')">+</button><br>
+        <button class="number" onclick="appendNumber('4')">4</button>
+        <button class="number" onclick="appendNumber('5')">5</button>
+        <button class="number" onclick="appendNumber('6')">6</button>
+        <button class="blue" onclick="appendOperator('-')">-</button><br>
+        <button class="number" onclick="appendNumber('7')">7</button>
+        <button class="number" onclick="appendNumber('8')">8</button>
+        <button class="number" onclick="appendNumber('9')">9</button>
+        <button class="blue" onclick="appendOperator('*')">*</button><br>
+        <button class="number" onclick="appendNumber('0')">0</button>
+        <button class="blue" onclick="clearDisplay()">C</button>
+        <button class="blue" onclick="calculateResult()">=</button>
+        <button class="blue" onclick="appendOperator('/')">/</button>
+    </div>
+
+    <script>
+        let currentInput = '';
+
+        function appendNumber(number) {
+        currentInput += number;
+        updateDisplay();
+        }
+
+        function appendOperator(operator) {
+        currentInput += ` ${operator} `;
+        updateDisplay();
+        }
+
+        function clearDisplay() {
+        currentInput = '';
+        updateDisplay();
+        }
+
+        function calculateResult() {
+        try {
+            const result = eval(currentInput);
+            currentInput = result.toString();
+            updateDisplay();
+        } catch (error) {
+            currentInput = 'Error';
+            updateDisplay();
+        }
+        }
+
+        function updateDisplay() {
+            document.getElementById('display').value = currentInput;
+        }
+
+    </script>
+</body>
+</html>
