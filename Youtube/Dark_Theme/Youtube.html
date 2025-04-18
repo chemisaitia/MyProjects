@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <link rel="stylesheet" href="Youtube.css">
+    <link rel="icon" type="x/icon" href="youtube.png">
+</head>
+<body>
+    <div class="header">
+        <header>
+            <button class="equiv" onclick="iframe2()">
+                &equiv;
+            </button>
+            <a href="https://www.youtube.com/" style="cursor: pointer;">
+                <img class="youtube-icon" src="YoutubeIcon.PNG" alt="icon">
+            </a>
+            <form onsubmit="return searchSubmit()">
+                <input class="Search-box" type="search" placeholder="Search" id="userInput" oninput="showSuggestions(this.value)" onemptied="hideSuggestions()">
+                <div id="suggestions">
+                    <ul id="suggestionList">
+
+                    </ul>
+                </div>
+
+                <button type="submit" class="search-btn" onclick="searchSubmit()">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" focusable="false"><path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path></svg>
+                </button> 
+            </form>
+
+
+            <div class="mic-popup-container">
+                <button type="submit" class="btn" onclick="openPopup()">
+                    <img alt="submit" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXlJREFUSEvt1cFLVFEUx/HPgGCEGxcWSBBuTBApEUQCV4L/gUggiYiICG38E8KFi7YiElKIG10HrsWSNupCBF0pKKJQmwgDtXw3biLTvHlvGGYheFcP7jnne+7v3vN7BTVehRrXlxcwhDfowDm+YAwnWQ3mAQxguUShIzxPwN/LQfIAvqI7pch8corxagGhw8aUIgdoqRbwJ0PnsirkkegekPWS3T2JfuIhGhC+j9Gccs6w9yTG/ojxIe9mlXpFe2hFFzbxAcMpgAWMogcb2EV7FuB9TJrDBJqwg0dFkGAVL/AtGbaPeJ3EzGIyC/ASn3EZLWIrShTAodPfWI8WcYperMWindjOAoT9RQQHPUycsx/7KRKFE6zicanuQ07aJNfjE/rwC0GudwiyhPUMU0kDI6hLdF/BK1wVN1LOKh5gJv4H0oblAtN4G6X7Ly6PFz2NnQ6iLVYI97IUpTyr1k1v5/+b6jyN/c3LHRgpNQdkGlcll1xxsVIJ16xNQxlXeT1iAAAAAElFTkSuQmCC"/>
+                </button>
+                <div class="popup" id="popup">
+                    <img alt="popup" class="ph1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXlJREFUSEvt1cFLVFEUx/HPgGCEGxcWSBBuTBApEUQCV4L/gUggiYiICG38E8KFi7YiElKIG10HrsWSNupCBF0pKKJQmwgDtXw3biLTvHlvGGYheFcP7jnne+7v3vN7BTVehRrXlxcwhDfowDm+YAwnWQ3mAQxguUShIzxPwN/LQfIAvqI7pch8corxagGhw8aUIgdoqRbwJ0PnsirkkegekPWS3T2JfuIhGhC+j9Gccs6w9yTG/ojxIe9mlXpFe2hFFzbxAcMpgAWMogcb2EV7FuB9TJrDBJqwg0dFkGAVL/AtGbaPeJ3EzGIyC/ASn3EZLWIrShTAodPfWI8WcYperMWindjOAoT9RQQHPUycsx/7KRKFE6zicanuQ07aJNfjE/rwC0GudwiyhPUMU0kDI6hLdF/BK1wVN1LOKh5gJv4H0oblAtN4G6X7Ly6PFz2NnQ6iLVYI97IUpTyr1k1v5/+b6jyN/c3LHRgpNQdkGlcll1xxsVIJ16xNQxlXeT1iAAAAAElFTkSuQmCC"/>
+                    <button type="button" onclick="closePopup()">X</button>
+                    <h2>Search with your voice</h2>
+                    <p>To search by voice, go to your browser settings and allow access to microphone</p>
+                </div>
+            </div>
+
+            
+            <button class="dots-3" onclick="dot3Fun()">
+                ⋮
+            </button>
+            
+            <div class="summon3dots" id="summon3dots">
+                <button class="darkmodebtn" onclick="redirectToAnotherSite1()">
+                    <img src="moon-regular-24.png" alt="">
+                    White mode</button>
+            </div>
+
+
+            <button class="sign-in" style="font-size: 20px;" onclick="redirectToAnotherSite2()">
+                <yt-icon style="width: 24px; height: 24px;"><yt-icon-shape class="style-scope yt-icon"><icon-shape class="yt-spec-icon-shape"><div style="display: inline-block; width: 30px; height: 100%; fill: currentcolor;"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 1c4.96 0 9 4.04 9 9 0 1.42-.34 2.76-.93 3.96-1.53-1.72-3.98-2.89-7.38-3.03A3.996 3.996 0 0016 9c0-2.21-1.79-4-4-4S8 6.79 8 9c0 1.97 1.43 3.6 3.31 3.93-3.4.14-5.85 1.31-7.38 3.03C3.34 14.76 3 13.42 3 12c0-4.96 4.04-9 9-9zM9 9c0-1.65 1.35-3 3-3s3 1.35 3 3-1.35 3-3 3-3-1.35-3-3zm3 12c-3.16 0-5.94-1.64-7.55-4.12C6.01 14.93 8.61 13.9 12 13.9c3.39 0 5.99 1.03 7.55 2.98C17.94 19.36 15.16 21 12 21z"></path></svg></div></icon-shape></yt-icon-shape></yt-icon> <span class="sign-in-text"></span>
+                Sign in
+            </button>
+        </header>
+    </div>
+
+    <nav style="display: inline-block;">
+        <aside>
+            <iframe style="border: 0;" id="iframe1" src="AsideIframe.html"></iframe>
+            
+            <div id="popupiframe" class="popupiframe">
+                    <button>
+                        <img alt="Home" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAASFJREFUSEvt1b8uBUEUx/HPjUQ0KoUHkIigUUmEhIKotBqegAfwBqLnCeg0CqU/BZGoNEIUHkChEh3hbrKbjHHX7O51GzHlmXN+33NOfpNp6fFp9VhfHcAwLvKG5vBUpbmqgEFcYTIXvcUMXlKQKoB+nGI2ErvEAt5+gqQA2f0RVkpEDrGKjzJICrCLjcQa9rDZBLCF7dSO8/ssd6dTbtkEa9ivKF6kreMgrukEWMYx+moC3ttOW8JZWBcDpnI7DtQUL9Jf247L3shNEQgBI7jGUEPxouwZ03jMAiHgAaNdihfld5iIAfcY+yVApjUeA0Lt0oeTaOCbacps+jcB8bSdpuxqRf+ALwY8x3wQOcFiZNEqObX+5EZvMPXhNBINiz4Bp0ktGQo11VEAAAAASUVORK5CYII="/><br>
+                        Home
+                    </button><br>
+
+                    <button onclick="redirectToAnotherSite3()">
+                        <img alt="shorts" src="../White_Theme/subscriptions.png"><br>
+                        Shorts
+                    </button><br>
+
+                    <button onclick="redirectToAnotherSite4()" style="margin-left: 0;">
+                        <img alt="subscriptions" style="margin-left: -10px;" src="../White_Theme/realsubscriptions.PNG"><br>
+                        Subscriptions
+                    </button><br>
+
+                    <button onclick="redirectToAnotherSite5()" style="margin-left: 15px;">
+                        <img alt="you" src="../White_Theme/you.PNG"><br>
+                        You
+                    </button><br>
+
+                    <button onclick="redirectToAnotherSite6()">
+                        <img alt="history" src="../White_Theme/History.PNG"><br>
+                        History
+                    </button>    
+            </div>
+        </aside>
+        
+
+        <div class="nav">
+            <button class="nav-btn-active">
+                All
+            </button>
+
+            <button class="nav-btn">
+                Gaming
+            </button>
+
+            <button class="nav-btn">
+                Unreal Engine
+            </button>
+
+            <button class="nav-btn">
+                Live
+            </button>
+
+            <button class="nav-btn">
+                Fortnite Creative
+            </button>
+
+            <button class="nav-btn">
+                Fortnite: Save the World
+            </button>
+
+            <button class="nav-btn">
+                Speedruns
+            </button>
+
+            <button class="nav-btn">
+                Lionel Messi
+            </button>
+
+            <button class="nav-btn">
+                Epic Games
+            </button>
+
+            <button class="nav-btn-bolos-6">
+                CSS
+            </button>
+
+            <button class="nav-btn-bolos-5">
+                Computer Keyboard
+            </button>
+
+            <button class="nav-btn-bolos-4">
+                Highlight films
+            </button>
+
+            <button class="nav-btn-bolos-3">
+                Sports leagues
+            </button>
+
+            <button class="nav-btn-bolos-2">
+                Camping
+            </button>
+
+            <button class="nav-btn-bolos-1">
+                Speedruns
+            </button>
+
+            <button class="nav-btn-bolo">
+                Computer
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container"> 
+        <div class="video-container">
+            <a href="video1.html" style="text-decoration: none;">
+                <video id="myVideo" autoplay muted onmouseover="video.play()" onmouseout="video.pause();">
+                    <source src="../videos/Video1Noaudio.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br>
+                <a href="https://www.youtube.com/@Crafterastudio" style="text-decoration: none;">
+                    <img alt="channel-photo" src="channel-photo.jpg" style="border-radius: 50%; height: 50px; width: 50px; margin-top: 5px;">
+                </a>
+                
+                <a href="video1.html" class="video-title">First ever Video clip with Music made by AI</a>
+            </a>
+        </div>
+        
+        <div class="video-container">
+            <a href="video2.html" style="text-decoration: none;">
+                <video id="myVideo2" autoplay muted onmouseover="video2.play()" onmouseout="video2.pause();">
+                    <source src="../videos/video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br>
+                <a href="https://www.youtube.com/@Crafterastudio" style="text-decoration: none;">
+                    <img alt="channel-photo" src="channel-photo.jpg" style="border-radius: 50%; height: 50px; width: 50px; margin-top: 5px;">
+                </a>
+
+                <a href="video2.html" class="video-title2">Neon Nights</a>
+            </a>
+        </div>
+
+        <div class="video-container">
+            <a href="Video3.html" style="text-decoration: none;">
+                <video id="myVideo3" autoplay muted onmouseover="video3.play()" onmouseout="video3.pause();">
+                    <source src="../videos/Video3noaudio.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br>
+                <a href="https://www.youtube.com/@Crafterastudio" style="text-decoration: none;">
+                    <img alt="channel-photo" src="channel-photo.jpg" style="border-radius: 50%; height: 50px; width: 50px; margin-top: 5px;">
+                </a>
+                <a href="video3.html" class="video-title3">Sunshine Getaway</a>
+            </a>
+        </div>
+
+        <div class="video-container">
+            <a href="Video4.html" style="text-decoration: none;">
+                <video id="myVideo4" autoplay muted onmouseover="video4.play()" onmouseout="video4.pause();">
+                    <source src="../videos/Video4withoutaudio.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br>
+                <a href="https://www.youtube.com/@Crafterastudio" style="text-decoration: none;">
+                    <img alt="channel-photo" src="channel-photo.jpg" style="border-radius: 50%; height: 50px; width: 50px; margin-top: 5px;">
+                </a>
+                <a href="video4.html" class="video-title4">Shattered Vows</a>
+            </a>
+        </div>
+
+        <div class="video-container">
+            <a href="Video5.html" style="text-decoration: none;">
+                <video id="myVideo5" autoplay muted onmouseover="video5.play()" onmouseout="video5.pause();">
+                    <source src="../videos/Video5withoutaudio.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br>
+                <a href="https://www.youtube.com/@Crafterastudio" style="text-decoration: none;">
+                    <img alt="channel-photo" src="channel-photo.jpg" style="border-radius: 50%; height: 50px; width: 50px; margin-top: 5px;">
+                </a>
+                <a href="video5.html" class="video-title5">Déjà Vu</a>
+            </a>
+        </div>
+
+        <div class="video-container">
+            <a href="video6.html" style="text-decoration: none;">
+                <video id="myVideo6" autoplay muted onmouseover="video6.play()" onmouseout="video6.pause();">
+                    <source src="../videos/video6withaudio.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video><br>
+                <a href="https://www.youtube.com/@Crafterastudio" style="text-decoration: none;">
+                    <img alt="channel-photo" src="channel-photo.jpg" style="border-radius: 50%; height: 50px; width: 50px; margin-top: 5px;">
+                </a>
+                <a href="video6.html" class="video-title6">The Tale of a Talented Parrot</a>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var video = document.getElementById("myVideo");
+        var video2 = document.getElementById("myVideo2")
+        var video3 = document.getElementById("myVideo3")
+        var video4 = document.getElementById("myVideo4")
+        var video5 = document.getElementById("myVideo5")
+        var video6 = document.getElementById("myVideo6")
+
+        window.onload = function() {
+        var video = document.getElementById('myVideo');
+        if (video) {
+            video.pause();
+            video2.pause();
+            video3.pause();
+            video4.pause();
+            video5.pause();
+            video6.pause();
+        }
+        };
+
+
+        let popup = document.getElementById("popup")
+
+        function openPopup(){
+            popup.classList.add('open-popup')
+            alert('Allow youtube to use your microphone')
+        }
+
+        function closePopup(){
+            popup.classList.remove('open-popup')
+        }
+
+
+        let summon3dots = document.getElementById("summon3dots")
+
+        function dot3Fun(){
+            if (summon3dots.classList.contains('dot3Fun')){
+                summon3dots.classList.remove('dot3Fun')
+            } else{
+                summon3dots.classList.add('dot3Fun')
+            }
+        }
+
+        let iframe1 = document.getElementById("iframe1")
+        let popupiframe = document.getElementById("popupiframe")
+
+        function iframe2(){
+            if (iframe1.classList.contains('iframe2')){
+                iframe1.classList.remove('iframe2')
+                popupiframe.classList.remove('popupiframe2')
+            } else{
+                iframe1.classList.add('iframe2')
+                popupiframe.classList.add('popupiframe2')
+            }
+        }
+
+        function redirectToAnotherSite1() {
+            window.location.href = "../White_Theme/Youtube.html";
+    }
+
+        function redirectToAnotherSite2() {
+            window.location.href = "Log-in-page.html";
+        }
+
+        function redirectToAnotherSite3(){
+            window.location.href = "https://www.youtube.com/shorts/";
+    }
+
+        function redirectToAnotherSite4(){
+            window.location.href = "https://www.youtube.com/feed/subscriptions";
+        }
+
+        function redirectToAnotherSite5(){
+            window.location.href = "https://www.youtube.com/feed/you"
+        }
+
+        function redirectToAnotherSite6(){
+            window.location.href = "https://www.youtube.com/feed/history"
+        }
+
+
+        const suggestions = ["First ever Video clip with Music made by AI", "Neon Nights", "Sunshine Getaway", "Shattered Vows", "Déjà Vu","The Tale of a Talented Parrot"];
+
+        function showSuggestions(input) {
+            const suggestionList = document.getElementById("suggestionList");
+            const suggestionsToShow = suggestions.filter(suggestion => suggestion.toLowerCase().includes(input.toLowerCase()));
+            suggestionList.innerHTML = "";
+            suggestionsToShow.forEach(suggestion => {
+            const li = document.createElement("li");
+            li.textContent = suggestion;
+            li.onclick = function() {
+                document.getElementById("userInput").value = suggestion;
+                hideSuggestions();
+            };
+            suggestionList.appendChild(li);
+            });
+            if (suggestionsToShow.length > 0) {
+            document.getElementById("suggestions").style.visibility = "visible";
+            } else {
+            hideSuggestions();
+            }
+        }
+
+        function hideSuggestions() {
+            document.getElementById("suggestions").style.visibility = "hidden";
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('#userInput')) {
+            hideSuggestions();
+            }
+        }
+        
+        function searchSubmit() {
+    let searchBox = document.getElementById('userInput').value;
+    if (searchBox.toLowerCase() === 'First ever Video clip with Music made by AI') {
+        window.location.href = "video1.html";
+        return false;
+    }
+    
+    if (searchBox.toLowerCase() === 'neon nights') {
+        window.location.href = "video2.html";
+        return false;
+    }
+
+    if (searchBox.toLowerCase() === 'sunshine getaway') {
+        window.location.href = "video3.html";
+        return false;
+    }
+
+    if (searchBox.toLowerCase() === 'shattered vows') {
+        window.location.href = "video4.html";
+        return false;
+    }
+    
+    if (searchBox.toLowerCase() === 'déjà vu') {
+        window.location.href = "video5.html";
+        return false;
+    }
+
+    if (searchBox.toLowerCase() === 'the tale of a talented parrot') {
+        window.location.href = "video6.html";
+        return false;
+    }
+
+    if(searchBox === ''){
+        window.location.href = "youtube.html"
+        return false;
+    }
+    
+    else {
+        let valueTaker = document.getElementById("userInput").value;
+        window.location.href = "https://www.youtube.com/results?search_query=" + valueTaker;
+        return false;
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunshine Getaway</title>
+    <link rel="stylesheet" href="video3.css">
+    <link rel="stylesheet" href="../Fonts/stylesheet.css">
+    <link rel="icon" type="x/icon" href="youtube.png">
+</head>
+<body>
+    <div>
+        <header>
+            <a href="#" style="cursor: pointer;">
+                <img class="youtube-icon" src="YoutubeIcon.PNG" alt="icon">
+            </a>
+            <form onsubmit="return searchSubmit()">
+                <input class="Search-box" type="search" placeholder="Search" id="userInput" oninput="showSuggestions(this.value)" onemptied="hideSuggestions()">
+                <div id="suggestions">
+                    <ul id="suggestionList">
+
+                    </ul>
+                </div>
+
+                <button type="submit" class="search-btn" onclick="searchSubmit()">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" focusable="false"><path d="m20.87 20.17-5.59-5.59C16.35 13.35 17 11.75 17 10c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7c1.75 0 3.35-.65 4.58-1.71l5.59 5.59.7-.71zM10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path></svg>
+                </button> 
+            </form>
+        </header>
+    </div>
+
+    <iframe style="margin-left: 165px; margin-top: 40px;" width="900" height="400" src="https://www.youtube.com/embed/VKzyij7wf4g" title="Sunshine Getaway" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="videos-container">
+        <div class="video2" onclick="redirectToAnotherSite2()" onmouseover="video2.play()" onmouseout="video2.pause()">
+            <video src="../videos/Video1Noaudio.mp4" id="myVideo2" autoplay muted class="right-video"></video>
+            <p class="right-video-title">First ever Video clip with Music made by AI</p><br>
+            <small class="right-video-subtitle">LM Studio</small>
+        </div>
+        <div class="video3" onclick="redirectToAnotherSite3()" onmouseover="video3.play()" onmouseout="video3.pause()">
+            <video src="../videos/video2.mp4" id="myVideo3" autoplay muted class="right-video"></video>
+            <p class="right-video-title">Neon Nights</p><br>
+            <small class="right-video-subtitle">LM Studio</small>
+        </div>
+        <div class="video4" onclick="redirectToAnotherSite4()" onmouseover="video4.play()" onmouseout="video4.pause()">
+            <video src="../videos/Video4withoutaudio.mp4"  id="myVideo4" autoplay muted class="right-video"></video>
+            <p class="right-video-title">Shattered Vows</p><br>
+            <small class="right-video-subtitle">LM Studio</small>
+        </div>
+        <div class="video5" onclick="redirectToAnotherSite5()" onmouseover="video5.play()" onmouseout="video5.pause()">
+            <video src="../videos/Video5withoutaudio.mp4" id="myVideo5" autoplay muted class="right-video"></video>
+            <p class="right-video-title">Déjà Vu</p><br>
+            <small class="right-video-subtitle">LM Studio</small>
+        </div>
+        <div class="video6" onclick="redirectToAnotherSite6()" onmouseover="video6.play()" onmouseout="video6.pause()">
+            <video src="../videos/video6withaudio.mp4" id="myVideo6" autoplay muted class="right-video"></video>
+            <p class="right-video-title">The Tale of a Talented Parrot</p><br>
+            <small class="right-video-subtitle">LM Studio</small>
+        </div>
+    </div>
+
+
+    <h2 style="font-family: Arial, Helvetica, sans-serif; margin-left: 170px; margin-top: -520px; color: white;">Sunshine Getaway</h2>
+    <a href="#" style="cursor: pointer; text-decoration: none;">
+        <img src="channel-photo.jpg" class="channel-photo">
+        <span style="font-size: 25px; vertical-align: top; color: white;">LM Studio</span>
+        <small style="color: gray; vertical-align: baseline; margin-left: -110px; font-size: 16px;">1.26M subscribers</small>
+    </a>
+    
+    <a href="#" style="text-decoration: none;">
+        <button class="subscribe" id="subscribe" onclick="subscribe()">Subscribe</button>
+    </a>
+
+    <a href="#" style="text-decoration: none;">
+        <button class="like" id="like" onclick="like()">
+            <img id="likephoto" src="like-regular-24.png" style="display: inline-block; cursor: pointer;">
+        </button>
+        <button class="dislike" id="dislike" onclick="dislike()">
+            <img id="dislikephoto" src="dislike-regular-24.png" style="display: inline-block;">
+        </button>
+    </a>
+    
+        <h1 style="padding-left: 160px; color: white;">Comments:</h1>
+    <img src="some-guy.jpg" class="some-guy">
+    <div style="display: inline-block;">
+        <input type="text" class="comment-box" id="commentInput" onkeydown="if (event.key === 'Enter') {addComment();}" placeholder="Add a comment...">
+        <img style="display: inline-block; cursor: pointer;" onclick="addComment()" src="send-solid-24.png" alt="send"><br>
+        <div class="commentList" id="commentList" style="display: inline-block; width: 500px; height: 100px; position: absolute; color: white;"></div>
+    </div>
+
+    
+
+    <script>
+        var video2 = document.getElementById("myVideo2");
+        var video3 = document.getElementById("myVideo3");
+        var video4 = document.getElementById("myVideo4");
+        var video5 = document.getElementById("myVideo5");
+        var video6 = document.getElementById("myVideo6");
+        var Mainvideo = document.getElementById("Mainvideo");
+
+        window.onload = function() {
+            video2.pause();
+            video3.pause();
+            video4.pause();
+            video5.pause();
+            video6.pause();
+
+            Mainvideo.play();
+        };
+
+        function redirectToAnotherSite2(){
+            window.location.href = 'video1.html';
+        }
+
+        function redirectToAnotherSite3(){
+            window.location.href = 'video2.html';
+        }
+        
+        function redirectToAnotherSite4(){
+            window.location.href = 'video4.html';
+        }
+
+        function redirectToAnotherSite5(){
+            window.location.href = 'video5.html';
+        }
+
+        function redirectToAnotherSite6(){
+            window.location.href = 'video6.html';
+        }
+        
+    
+    function like(){
+        
+        let like = document.getElementById('like')
+        let img1 = document.getElementById('likephoto')      
+        if (like.classList.contains('like-active')){
+            like.classList.remove('like-active')
+            img1.src = 'like-regular-24.png'
+            
+    } else{
+        like.classList.add('like-active')
+        img1.src = 'like-solid-24.png'
+        document.getElementById('dislike').classList.remove('dislike-active')
+        document.getElementById('dislikephoto').src = 'dislike-regular-24.png'
+    }
+}
+
+
+    function dislike(){
+
+        let dislike = document.getElementById('dislike')
+        let img2 = document.getElementById('dislikephoto')
+        if (dislike.classList.contains('dislike-active')){
+            dislike.classList.remove('dislike-active')
+            img2.src = 'dislike-regular-24.png'
+    } else{
+        dislike.classList.add('dislike-active')
+        img2.src = 'dislike-solid-24.png'
+        document.getElementById('like').classList.remove('like-active')
+        document.getElementById('likephoto').src = 'like-regular-24.png'
+    }
+    }
+
+    function subscribe(){
+        let subscribe = document.getElementById('subscribe')
+        var subActive = document.getElementsByClassName('subscribe-active')
+        if (subscribe.classList.contains('subscribe-active')){
+            subscribe.classList.remove('subscribe-active')
+        } else{
+            subscribe.classList.add('subscribe-active')
+        }          
+    }
+
+    var commentInput = document.getElementById('commentInput');
+    
+    function addComment() {
+    var commentList = document.getElementById('commentList');
+
+    if (commentInput.value.trim() === '') {
+        alert('Please Type a Comment.');
+        return;
+    }
+
+    var newComment = document.createElement('p');
+    newComment.innerHTML = `
+        <img src="some-guy.jpg" class="some-guy" style="margin-left:10px">
+        <p style="display:inline-block; color:white">${commentInput.value}</p>
+    `;
+
+    commentList.appendChild(newComment);
+    commentInput.value = '';
+}
+
+const suggestions = ["First ever Video clip with Music made by AI", "Neon Nights", "Sunshine Getaway", "Shattered Vows", "Déjà Vu","The Tale of a Talented Parrot"];
+
+        function showSuggestions(input) {
+            const suggestionList = document.getElementById("suggestionList");
+            const suggestionsToShow = suggestions.filter(suggestion => suggestion.toLowerCase().includes(input.toLowerCase()));
+            suggestionList.innerHTML = "";
+            suggestionsToShow.forEach(suggestion => {
+            const li = document.createElement("li");
+            li.textContent = suggestion;
+            li.onclick = function() {
+                document.getElementById("userInput").value = suggestion;
+                hideSuggestions();
+            };
+            suggestionList.appendChild(li);
+            });
+            if (suggestionsToShow.length > 0) {
+            document.getElementById("suggestions").style.visibility = "visible";
+            } else {
+            hideSuggestions();
+            }
+        }
+
+        function hideSuggestions() {
+            document.getElementById("suggestions").style.visibility = "hidden";
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('#userInput')) {
+            hideSuggestions();
+            }
+        }
+        
+        function searchSubmit() {
+    let searchBox = document.getElementById('userInput').value;
+    if (searchBox === 'First ever Video clip with Music made by AI') {
+        window.location.href = "video1.html";
+        return false;
+    }
+    
+    if (searchBox === 'Neon Nights') {
+        window.location.href = "video2.html";
+        return false;
+    }
+
+    if (searchBox === 'Sunshine Getaway') {
+        window.location.href = "video3.html";
+        return false;
+    }
+
+    if (searchBox === 'Shattered Vows') {
+        window.location.href = "video4.html";
+        return false;
+    }
+    
+    if (searchBox === 'Déjà Vu') {
+        window.location.href = "video5.html";
+        return false;
+    }
+
+    if (searchBox === 'The Tale of a Talented Parrot') {
+        window.location.href = "video6.html";
+        return false;
+    }
+    
+    else {
+        let valueTaker = document.getElementById("userInput").value;
+        window.location.href = "https://www.youtube.com/results?search_query=" + valueTaker;
+        return false;
+    }
+}
+    </script>
+</body>
+</html>

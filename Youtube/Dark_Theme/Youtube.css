@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    font-family: "Roboto", sans-serif;
+}
+
+html{
+    height: 100%;
+    background-color: rgb(29, 29, 29);
+}
+
+body{
+    overflow: hidden;
+}
+
+.equiv{
+    font-size: 30px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    height: 35px;
+    width: 35px;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-top: 10px;
+    border: 0;
+    background-color: rgb(29, 29, 29);
+}
+
+.equiv:hover{
+    background-color: rgb(132, 132, 132);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.equiv:active{
+    background-color: rgb(215, 215, 215);
+    cursor: pointer;
+}
+
+span {
+    font-size: 40px;
+    margin-left: 18px;
+    margin-top: 5px;
+}
+
+.youtube-icon{
+    margin-left: 10px;
+    display: inline;
+    width: 130px;
+    height: 35px;
+    margin-top: 7px;
+    position: absolute;
+}
+
+.Youtube-main-text{
+    display: inline-block;
+}
+
+.Search-box{
+    margin-left: 600px;
+    color: gray;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border: 1px solid gray;
+    width: 450px;
+    height: 15px;
+    padding: 20px;
+    background-color: rgb(23, 23, 23);
+    display: inline-block;
+}
+
+.Search-box:focus{
+    color: white;
+}
+
+form{
+    display: inline-block;
+}
+
+.search-btn{
+    width: 60px;
+    height: 42px;
+    border: 1px solid gray;
+    border-radius:0 20px 20px 0;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    padding: 5px;
+    background-color: rgb(66, 66, 66);
+}
+
+.search-icon{
+    pointer-events: none; 
+    display: inline-block; 
+    width: 20px; 
+    height: 20px;
+    background-color: rgb(66, 66, 66);
+    color: white;
+}
+
+.Microphone{
+    margin-left: 75px;
+    border-radius: 50%;
+    position: absolute;
+    border: 0;
+    padding: 6px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.sign-in{
+    padding: 6px;
+    color: rgb(58, 130, 255);
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 15px;
+    width: 120px; 
+    height: 35px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.sign-in:hover{
+    background-color: rgb(204, 222, 255);
+}
+
+.sign-in-text{
+    font-size: 20px;
+    margin-left: 0;
+}
+
+sup{
+    color: gray;
+    font-size: 7px;
+}
+
+.nav{
+    display: inline-block;
+    margin-left: -10px;
+}
+
+.nav-btn-active{
+    background-color: black;
+    border: 0px;
+    border-radius: 7px;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 270px;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-btn,.nav-btn-bolo,.nav-btn-bolos-1,.nav-btn-bolos-2,.nav-btn-bolos-3,.nav-btn-bolos-4,.nav-btn-bolos-5,.nav-btn-bolos-6{
+    border: 0px;
+    border-radius: 7px;
+    padding: 5px 11px;
+    background-color: rgb(222, 222, 222);
+    margin-left: 8px;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-btn-onclick,.nav-btn-bolo-onclick,.nav-btn-bolos-1-onclick,.nav-btn-bolos-2-onclick,.nav-btn-bolos-3-onclick,.nav-btn-bolos-4-onclick,.nav-btn-bolos-5-onclick,.nav-btn-bolos-6-onclick{
+    border: 0px;
+    border-radius: 7px;
+    padding: 5px 11px;
+    background-color: black;
+    margin-left: 8px;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#iframe1{
+    display: inline-block;
+    width: 220px;
+    height:820px;
+}
+
+.iframe2{
+    visibility: hidden;
+}
+
+.popupiframe{
+    visibility: hidden;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 5px;
+    height: 100vh;
+    background-color: rgb(188, 188, 188);
+    transition: transform 0.4s, top 0.4s;
+}
+
+.popupiframe2{
+    visibility: visible;
+    margin-left: -228px;
+    z-index: 5;
+    position: absolute;
+}
+
+.popupiframe a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.popupiframe button{
+    background-color: rgb(188, 188, 188);
+    border: 0;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.popupiframe button:hover{
+    cursor: pointer; 
+    background-color: rgb(238, 238, 238);
+}
+
+
+aside{
+    margin-top: 20px;
+    display: inline-block;
+    position: absolute;
+    height: 400px;
+}
+
+.container{
+    padding-left: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 150px;
+    row-gap: 50px;
+}
+
+video {
+    width: 350px;
+    height: 200px;
+    display: inline-block;
+    transition: 0.2s;
+    border-radius: 10%;
+}
+
+video:hover{
+   border-radius: 0%;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 20px;
+    transition: border-radius 0.3s ease-in-out;
+}
+
+.video-title{
+    font-size: 25px; 
+    color: rgb(238, 238, 238); 
+    width: 300px; 
+    display: inline-block; 
+    margin: 0; 
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.video-title2{
+    vertical-align: super; 
+    font-size: 25px; 
+    color: rgb(238, 238, 238);  
+    width: 300px; 
+    display: inline-block; 
+    margin: 0; 
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.video-title3{
+    vertical-align: super; 
+    font-size: 25px; 
+    color: rgb(238, 238, 238); 
+    width: 300px; 
+    display: inline-block; 
+    margin: 0; 
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.video-title4{
+    vertical-align: super; 
+    font-size: 25px; 
+    color: rgb(238, 238, 238); 
+    width: 300px; 
+    display: inline-block; 
+    margin: 0; 
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.video-title5{
+    vertical-align: super; 
+    font-size: 25px; 
+    color: rgb(238, 238, 238); 
+    width: 300px; 
+    display: inline-block; 
+    margin: 0; 
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.video-title6{
+    vertical-align: super; 
+    font-size: 25px; 
+    color: rgb(238, 238, 238); 
+    width: 300px; 
+    display: inline-block; 
+    margin: 0; 
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.mic-popup-container{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 65px;
+    box-sizing: border-box;
+}
+
+.btn{
+    box-sizing: border-box;
+    padding: 2px 5px;
+    background-color: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.btn:hover{
+    background-color: rgb(167, 167, 167);
+    border-radius: 15px;
+}
+
+.popup{
+    width: 400px;
+    background-color: white;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%)scale(0.1);
+    visibility: hidden;
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    z-index: 1;
+    border: 1px solid black;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%)scale(1);
+}
+
+.popup .ph1{
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 120px;
+    border-radius: 50%;
+}
+
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button{
+    display: inline-block;
+    margin-top: 10px;
+    vertical-align: top;
+    width: 30px;
+    background-color: white;
+    padding: 3px 0px;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 130px;
+}
+
+.popup button:hover{
+    background-color: rgb(167, 167, 167);
+    border-radius: 15px;
+}
+
+.dots-3{
+    margin-left: 480px;
+    border: 0;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-size: 25px;
+}
+
+.dots-3:hover{
+    cursor: pointer;
+}
+
+.summon3dots{
+    left: 1710px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 5px;
+    width: 90px;
+    height: 65px;
+    background-color: rgba(234, 234, 234, 0.8);
+    z-index: 1;
+    box-shadow: 2px 2px 5px black;
+    visibility: hidden;
+    position: absolute;
+}
+
+.darkmodebtn{
+    background-color: transparent; 
+    border: none;
+    margin-left: 15px;    
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.darkmodebtn:hover{
+    cursor: pointer;
+    background-color: rgb(201, 201, 201);
+}
+
+.dot3Fun{
+    visibility: visible;
+}
+
+
+#suggestions {
+    visibility: hidden;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 600px;
+    margin-top: 5px;
+    z-index: 1;
+}
+
+#suggestions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#suggestions ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#suggestions ul li:hover {
+    background-color: #ddd;
+}
+
+@media screen and (max-width: 1915px) {
+    .Search-box{
+        margin-left: 600px;
+    }
+    .nav-btn-bolo{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+}
+
+@media screen and (max-width: 1875px) {
+    .Search-box{
+        margin-left: 450px;
+    }
+    .nav-btn-bolo{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-1{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+
+    .dots-3{
+        margin-left: 480px;
+    }
+}
+
+@media screen and (max-width: 1750px) {
+    .Search-box{
+        margin-left: 450px;
+        width: 420px;
+    }
+    .nav-btn-bolo{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-1{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-2{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    
+    .dots-3{
+        margin-left: 450px;
+    }
+}
+
+@media screen and (max-width: 1665px) {
+    .Search-box{
+        margin-left: 450px;
+        width: 320px;
+    }
+    .nav-btn-bolo{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-1{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-2{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-3{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    
+    .dots-3{
+        margin-left: 400px;
+    }
+}
+
+@media screen and (max-width: 1555px) {
+    .Search-box{
+        margin-left: 450px;
+        width: 280px;
+    }
+    .nav-btn-bolo{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-1{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-2{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-3{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-4{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    
+    .dots-3{
+        margin-left: 350px;
+    }
+}
+
+@media screen and (max-width: 1425px) {
+    .Search-box{
+        margin-left: 290px;
+        width: 250px;
+    }
+    .nav-btn-bolo{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-1{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-2{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-3{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    .nav-btn-bolos-4{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+
+    .nav-btn-bolos-5{
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    
+    .dots-3{
+        margin-left: 350px;
+        color: rgb(23, 23, 23);
+        background-color: rgb(23, 23, 23);
+        padding: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+@media screen and (max-width: 1330px){
+    .nav-btn,.nav-btn-bolo,.nav-btn-bolos-1,.nav-btn-bolos-2,.nav-btn-bolos-3,.nav-btn-bolos-4,.nav-btn-bolos-5,.nav-btn-bolos-6,.nav-btn-active{
+        font-size: 0;
+        padding: 0;
+        margin: 0;
+        width: 0;
+    }
+
+    .dots-3{
+        margin-left: 320px;
+        border: 0;
+        background-color: white;
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 1220px){
+    body{
+        overflow: visible;
+    }
+
+    .dots-3{
+        margin-left: 270px;
+    }
+}
+
+@media screen and (max-width: 1160px){
+    .dots-3{
+        margin-left: 190px;
+    }
+}
+
+@media screen and (max-width: 1075px){
+    .dots-3{
+        margin-left: 80px;
+    }
+}
+
+@media screen and (max-width: 850px){
+    body{
+        overflow: visible;
+    }
+
+    iframe{
+        visibility: hidden;
+    }
+
+
+    .container{
+        padding-left: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        row-gap: 20px;
+    }
+
+    #userInput{
+        margin-left: -30px;
+    }
+
+    .youtube-icon{
+        visibility: hidden;
+    }
+
+    .equiv{
+        visibility: hidden;
+    }
+
+    .btn img{
+        display: none;
+    }
+
+    .dots-3{
+        display: none;
+    }
+
+    .sign-in{
+        margin-left: 35%;
+    }
+}
